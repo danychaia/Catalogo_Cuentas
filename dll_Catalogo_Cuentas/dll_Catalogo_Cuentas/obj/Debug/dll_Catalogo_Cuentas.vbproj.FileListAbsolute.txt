@@ -1,0 +1,10 @@
+c:\users\itligencia\documents\visual studio 2015\Projects\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\bin\Debug\dll_Catalogo_Cuentas.dll
+c:\users\itligencia\documents\visual studio 2015\Projects\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\bin\Debug\dll_Catalogo_Cuentas.pdb
+c:\users\itligencia\documents\visual studio 2015\Projects\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\bin\Debug\dll_Catalogo_Cuentas.xml
+c:\users\itligencia\documents\visual studio 2015\Projects\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.vbprojResolveAssemblyReference.cache
+c:\users\itligencia\documents\visual studio 2015\Projects\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.frmCatalogoCuentas.resources
+c:\users\itligencia\documents\visual studio 2015\Projects\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.Resources.resources
+c:\users\itligencia\documents\visual studio 2015\Projects\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.vbproj.GenerateResource.Cache
+c:\users\itligencia\documents\visual studio 2015\Projects\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.dll
+c:\users\itligencia\documents\visual studio 2015\Projects\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.xml
+c:\users\itligencia\documents\visual studio 2015\Projects\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.pdb
