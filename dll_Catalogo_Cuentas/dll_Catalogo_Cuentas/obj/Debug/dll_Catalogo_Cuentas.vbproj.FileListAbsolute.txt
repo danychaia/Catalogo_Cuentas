@@ -8,17 +8,16 @@ c:\users\itligencia\documents\visual studio 2015\Projects\dll_Catalogo_Cuentas\d
 c:\users\itligencia\documents\visual studio 2015\Projects\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.dll
 c:\users\itligencia\documents\visual studio 2015\Projects\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.xml
 c:\users\itligencia\documents\visual studio 2015\Projects\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.pdb
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\bin\Debug\dll_Catalogo_Cuentas.dll.config
 C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\bin\Debug\dll_Catalogo_Cuentas.dll
 C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\bin\Debug\dll_Catalogo_Cuentas.pdb
 C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\bin\Debug\dll_Catalogo_Cuentas.xml
-C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.vbprojResolveAssemblyReference.cache
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\bin\Debug\EntityFramework.dll
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\bin\Debug\EntityFramework.xml
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.frmAgregarNivel.resources
 C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.frmCatalogoCuentas.resources
 C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.Resources.resources
 C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.vbproj.GenerateResource.Cache
 C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.dll
 C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.xml
 C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.pdb
-C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\bin\Debug\dll_Catalogo_Cuentas.dll.config
-C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\bin\Debug\EntityFramework.dll
-C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\bin\Debug\EntityFramework.xml
-C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.frmAgregarNivel.resources

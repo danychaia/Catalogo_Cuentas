@@ -63,7 +63,7 @@ Partial Class frmAgregarNivel
         '
         'btnAceptar
         '
-        Me.btnAceptar.Location = New System.Drawing.Point(94, 63)
+        Me.btnAceptar.Location = New System.Drawing.Point(87, 63)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(93, 23)
         Me.btnAceptar.TabIndex = 4

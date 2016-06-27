@@ -22,11 +22,8 @@ Public Class frmCatalogoCuentas
         Dim cuentas As New List(Of tbl_mf_catalogo)
         Using context As New contaEntities()
             cuentas = context.tbl_mf_catalogo.ToList
-        End Using
-        Dim nodo As New TreeNode("CATALOGO CONTABLE")
-        nodo.Tag = "raiz"
-        nodo.ToolTipText = "raiz"
-        llenarArbolCuentas(cuentas, "-1", nodo)
+        End Using        
+        llenarArbolCuentas(cuentas, "-1", Nothing)
     End Sub
     Private Sub llenarArbolCuentas(cuentas As List(Of tbl_mf_catalogo), cuentaPadre As String, nodoPadre As TreeNode)
         Dim nuevasCuentas = From c In cuentas
@@ -37,13 +34,11 @@ Public Class frmCatalogoCuentas
             tnNodo.Tag = item.id_catalogo
             tnNodo.ToolTipText = item.ctl_id_padre
             If cuentaPadre = "-1" Then
-                If (nodoPadre.Text = "CATALOGO CONTABLE") Then
-                    tw_Catalogo.Nodes.Add(nodoPadre)
-                End If
                 tw_Catalogo.Nodes.Add(tnNodo)
                 tw_Catalogo.ExpandAll()
             Else
                 nodoPadre.Nodes.Add(tnNodo)
+                nodoPadre.ExpandAll()
             End If
             llenarArbolCuentas(cuentas, item.id_catalogo, tnNodo)
         Next
@@ -55,7 +50,10 @@ Public Class frmCatalogoCuentas
 
         Else
             Dim agregar_nivel As New frmAgregarNivel()
+            agregar_nivel.nodeSelected = selectNode
             agregar_nivel.ShowDialog()
+            tw_Catalogo.Nodes.Clear()
+            cargarCatalogoCuentas()
         End If
 
     End Sub
