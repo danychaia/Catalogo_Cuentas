@@ -23,10 +23,6 @@ Partial Class frmCatalogoCuentas
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Corriente")
-        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Activo", New System.Windows.Forms.TreeNode() {TreeNode1})
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Corriente")
-        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Pasivo", New System.Windows.Forms.TreeNode() {TreeNode3})
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCatalogoCuentas))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.tw_Catalogo = New System.Windows.Forms.TreeView()
@@ -36,8 +32,10 @@ Partial Class frmCatalogoCuentas
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnAgregarRow = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.btnAgregarNivel = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.ToolTip2 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ToolTip3 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.dgwCatalogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -57,16 +55,6 @@ Partial Class frmCatalogoCuentas
         Me.tw_Catalogo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tw_Catalogo.Location = New System.Drawing.Point(0, 0)
         Me.tw_Catalogo.Name = "tw_Catalogo"
-        TreeNode1.Name = "Corriente"
-        TreeNode1.Text = "Corriente"
-        TreeNode2.Name = "Activo"
-        TreeNode2.SelectedImageKey = "(predeterminada)"
-        TreeNode2.Text = "Activo"
-        TreeNode3.Name = "Corriente"
-        TreeNode3.Text = "Corriente"
-        TreeNode4.Name = "Pasivo"
-        TreeNode4.Text = "Pasivo"
-        Me.tw_Catalogo.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2, TreeNode4})
         Me.tw_Catalogo.Size = New System.Drawing.Size(309, 371)
         Me.tw_Catalogo.TabIndex = 0
         '
@@ -114,6 +102,18 @@ Partial Class frmCatalogoCuentas
         Me.btnAgregarRow.UseCompatibleTextRendering = True
         Me.btnAgregarRow.UseVisualStyleBackColor = True
         '
+        'btnAgregarNivel
+        '
+        Me.btnAgregarNivel.Image = CType(resources.GetObject("btnAgregarNivel.Image"), System.Drawing.Image)
+        Me.btnAgregarNivel.Location = New System.Drawing.Point(21, 32)
+        Me.btnAgregarNivel.Name = "btnAgregarNivel"
+        Me.btnAgregarNivel.Size = New System.Drawing.Size(22, 23)
+        Me.btnAgregarNivel.TabIndex = 4
+        Me.ToolTip3.SetToolTip(Me.btnAgregarNivel, "Agregar nivel")
+        Me.ToolTip1.SetToolTip(Me.btnAgregarNivel, "Agregar")
+        Me.btnAgregarNivel.UseCompatibleTextRendering = True
+        Me.btnAgregarNivel.UseVisualStyleBackColor = True
+        '
         'btnModificar
         '
         Me.btnModificar.Image = CType(resources.GetObject("btnModificar.Image"), System.Drawing.Image)
@@ -128,6 +128,7 @@ Partial Class frmCatalogoCuentas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(926, 446)
+        Me.Controls.Add(Me.btnAgregarNivel)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnAgregarRow)
         Me.Controls.Add(Me.Panel2)
@@ -151,4 +152,6 @@ Partial Class frmCatalogoCuentas
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents btnModificar As System.Windows.Forms.Button
     Friend WithEvents ToolTip2 As System.Windows.Forms.ToolTip
+    Friend WithEvents btnAgregarNivel As System.Windows.Forms.Button
+    Friend WithEvents ToolTip3 As System.Windows.Forms.ToolTip
 End Class

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a4e5ceaed3854c57984f390828b17e3f" Name="Diagram1">
+        <EntityTypeShape EntityType="contaModel.tbl_mf_catalogo" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="contaModel.tbl_mf_cierre_contable" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="contaModel.tbl_mf_detalle_partida" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="contaModel.tbl_mf_empresa" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="contaModel.tbl_mf_modeda" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="contaModel.tbl_mf_partida" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="contaModel.tbl_mf_periodo_contable" Width="1.5" PointX="0.75" PointY="16.25" IsExpanded="true" />
+        <AssociationConnector Association="contaModel.tbl_mf_catalogo_tbl_mf_detalle_partida_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="contaModel.tbl_mf_cierre_contable_tbl_mf_detalle_partida_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="contaModel.tbl_mf_empresa_tbl_mf_detalle_partida_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="contaModel.tbl_mf_modeda_tbl_mf_detalle_partida_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="contaModel.tbl_mf_partida_tbl_mf_detalle_partida_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="contaModel.tbl_mf_periodo_contable_tbl_mf_detalle_partida_fk" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

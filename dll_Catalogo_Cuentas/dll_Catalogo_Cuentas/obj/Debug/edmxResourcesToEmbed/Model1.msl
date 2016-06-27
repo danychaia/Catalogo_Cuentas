@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="contaModelStoreContainer" CdmEntityContainer="contaEntities">
+    <EntitySetMapping Name="tbl_mf_catalogo">
+      <EntityTypeMapping TypeName="contaModel.tbl_mf_catalogo">
+        <MappingFragment StoreEntitySet="tbl_mf_catalogo">
+          <ScalarProperty Name="id_catalogo" ColumnName="id_catalogo" />
+          <ScalarProperty Name="ctl_descripcion" ColumnName="ctl_descripcion" />
+          <ScalarProperty Name="ctl_id_padre" ColumnName="ctl_id_padre" />
+          <ScalarProperty Name="ctl_nivel" ColumnName="ctl_nivel" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_mf_cierre_contable">
+      <EntityTypeMapping TypeName="contaModel.tbl_mf_cierre_contable">
+        <MappingFragment StoreEntitySet="tbl_mf_cierre_contable">
+          <ScalarProperty Name="id_cierre" ColumnName="id_cierre" />
+          <ScalarProperty Name="cct_fecha_cierre" ColumnName="cct_fecha_cierre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_mf_detalle_partida">
+      <EntityTypeMapping TypeName="contaModel.tbl_mf_detalle_partida">
+        <MappingFragment StoreEntitySet="tbl_mf_detalle_partida">
+          <ScalarProperty Name="id_detalle" ColumnName="id_detalle" />
+          <ScalarProperty Name="dtp_debe" ColumnName="dtp_debe" />
+          <ScalarProperty Name="dtp_haber" ColumnName="dtp_haber" />
+          <ScalarProperty Name="id_catalogo" ColumnName="id_catalogo" />
+          <ScalarProperty Name="id_partida" ColumnName="id_partida" />
+          <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+          <ScalarProperty Name="id_moneda" ColumnName="id_moneda" />
+          <ScalarProperty Name="id_cierre" ColumnName="id_cierre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_mf_empresa">
+      <EntityTypeMapping TypeName="contaModel.tbl_mf_empresa">
+        <MappingFragment StoreEntitySet="tbl_mf_empresa">
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+          <ScalarProperty Name="eps_nombre" ColumnName="eps_nombre" />
+          <ScalarProperty Name="eps_razon_social" ColumnName="eps_razon_social" />
+          <ScalarProperty Name="eps_nit" ColumnName="eps_nit" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_mf_modeda">
+      <EntityTypeMapping TypeName="contaModel.tbl_mf_modeda">
+        <MappingFragment StoreEntitySet="tbl_mf_modeda">
+          <ScalarProperty Name="id_moneda" ColumnName="id_moneda" />
+          <ScalarProperty Name="mnd_codigo_moneda" ColumnName="mnd_codigo_moneda" />
+          <ScalarProperty Name="mnd_tipo_cambio" ColumnName="mnd_tipo_cambio" />
+          <ScalarProperty Name="tbl_mf_fecha" ColumnName="tbl_mf_fecha" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_mf_partida">
+      <EntityTypeMapping TypeName="contaModel.tbl_mf_partida">
+        <MappingFragment StoreEntitySet="tbl_mf_partida">
+          <ScalarProperty Name="id_partida" ColumnName="id_partida" />
+          <ScalarProperty Name="ptd_concepto" ColumnName="ptd_concepto" />
+          <ScalarProperty Name="ptd_fecha" ColumnName="ptd_fecha" />
+          <ScalarProperty Name="ptd_no_partida" ColumnName="ptd_no_partida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_mf_periodo_contable">
+      <EntityTypeMapping TypeName="contaModel.tbl_mf_periodo_contable">
+        <MappingFragment StoreEntitySet="tbl_mf_periodo_contable">
+          <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+          <ScalarProperty Name="prc_fecha_inicio" ColumnName="prc_fecha_inicio" />
+          <ScalarProperty Name="prc_fecha_final" ColumnName="prc_fecha_final" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

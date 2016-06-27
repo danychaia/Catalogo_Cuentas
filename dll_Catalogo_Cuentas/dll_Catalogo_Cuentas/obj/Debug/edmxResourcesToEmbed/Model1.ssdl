@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="contaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_mf_catalogo">
+    <Key>
+      <PropertyRef Name="id_catalogo" />
+    </Key>
+    <Property Name="id_catalogo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ctl_descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ctl_id_padre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ctl_nivel" Type="int" Nullable="false" />
+    <Property Name="id_estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mf_cierre_contable">
+    <Key>
+      <PropertyRef Name="id_cierre" />
+    </Key>
+    <Property Name="id_cierre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cct_fecha_cierre" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mf_detalle_partida">
+    <Key>
+      <PropertyRef Name="id_detalle" />
+    </Key>
+    <Property Name="id_detalle" Type="int" Nullable="false" />
+    <Property Name="dtp_debe" Type="float" Nullable="false" />
+    <Property Name="dtp_haber" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="id_catalogo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_partida" Type="int" Nullable="false" />
+    <Property Name="id_periodo" Type="int" Nullable="false" />
+    <Property Name="id_empresa" Type="int" Nullable="false" />
+    <Property Name="id_moneda" Type="int" Nullable="false" />
+    <Property Name="id_cierre" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mf_empresa">
+    <Key>
+      <PropertyRef Name="id_empresa" />
+    </Key>
+    <Property Name="id_empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="eps_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="eps_razon_social" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="eps_nit" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="id_estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mf_modeda">
+    <Key>
+      <PropertyRef Name="id_moneda" />
+    </Key>
+    <Property Name="id_moneda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mnd_codigo_moneda" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="mnd_tipo_cambio" Type="float" Nullable="false" />
+    <Property Name="tbl_mf_fecha" Type="datetime" Nullable="false" />
+    <Property Name="id_estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mf_partida">
+    <Key>
+      <PropertyRef Name="id_partida" />
+    </Key>
+    <Property Name="id_partida" Type="int" Nullable="false" />
+    <Property Name="ptd_concepto" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="ptd_fecha" Type="datetime" Nullable="false" />
+    <Property Name="ptd_no_partida" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mf_periodo_contable">
+    <Key>
+      <PropertyRef Name="id_periodo" />
+    </Key>
+    <Property Name="id_periodo" Type="int" Nullable="false" />
+    <Property Name="prc_fecha_inicio" Type="datetime" Nullable="false" />
+    <Property Name="prc_fecha_final" Type="datetime" Nullable="false" />
+    <Property Name="id_estado" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="tbl_mf_catalogo_tbl_mf_detalle_partida_fk">
+    <End Role="tbl_mf_catalogo" Type="Self.tbl_mf_catalogo" Multiplicity="1" />
+    <End Role="tbl_mf_detalle_partida" Type="Self.tbl_mf_detalle_partida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_catalogo">
+        <PropertyRef Name="id_catalogo" />
+      </Principal>
+      <Dependent Role="tbl_mf_detalle_partida">
+        <PropertyRef Name="id_catalogo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbl_mf_cierre_contable_tbl_mf_detalle_partida_fk">
+    <End Role="tbl_mf_cierre_contable" Type="Self.tbl_mf_cierre_contable" Multiplicity="1" />
+    <End Role="tbl_mf_detalle_partida" Type="Self.tbl_mf_detalle_partida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_cierre_contable">
+        <PropertyRef Name="id_cierre" />
+      </Principal>
+      <Dependent Role="tbl_mf_detalle_partida">
+        <PropertyRef Name="id_cierre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbl_mf_empresa_tbl_mf_detalle_partida_fk">
+    <End Role="tbl_mf_empresa" Type="Self.tbl_mf_empresa" Multiplicity="1" />
+    <End Role="tbl_mf_detalle_partida" Type="Self.tbl_mf_detalle_partida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_empresa">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="tbl_mf_detalle_partida">
+        <PropertyRef Name="id_empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbl_mf_modeda_tbl_mf_detalle_partida_fk">
+    <End Role="tbl_mf_modeda" Type="Self.tbl_mf_modeda" Multiplicity="1" />
+    <End Role="tbl_mf_detalle_partida" Type="Self.tbl_mf_detalle_partida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_modeda">
+        <PropertyRef Name="id_moneda" />
+      </Principal>
+      <Dependent Role="tbl_mf_detalle_partida">
+        <PropertyRef Name="id_moneda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbl_mf_partida_tbl_mf_detalle_partida_fk">
+    <End Role="tbl_mf_partida" Type="Self.tbl_mf_partida" Multiplicity="1" />
+    <End Role="tbl_mf_detalle_partida" Type="Self.tbl_mf_detalle_partida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_partida">
+        <PropertyRef Name="id_partida" />
+      </Principal>
+      <Dependent Role="tbl_mf_detalle_partida">
+        <PropertyRef Name="id_partida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbl_mf_periodo_contable_tbl_mf_detalle_partida_fk">
+    <End Role="tbl_mf_periodo_contable" Type="Self.tbl_mf_periodo_contable" Multiplicity="1" />
+    <End Role="tbl_mf_detalle_partida" Type="Self.tbl_mf_detalle_partida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_periodo_contable">
+        <PropertyRef Name="id_periodo" />
+      </Principal>
+      <Dependent Role="tbl_mf_detalle_partida">
+        <PropertyRef Name="id_periodo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="contaModelStoreContainer">
+    <EntitySet Name="tbl_mf_catalogo" EntityType="Self.tbl_mf_catalogo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_cierre_contable" EntityType="Self.tbl_mf_cierre_contable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_detalle_partida" EntityType="Self.tbl_mf_detalle_partida" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_empresa" EntityType="Self.tbl_mf_empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_modeda" EntityType="Self.tbl_mf_modeda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_partida" EntityType="Self.tbl_mf_partida" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_periodo_contable" EntityType="Self.tbl_mf_periodo_contable" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="tbl_mf_catalogo_tbl_mf_detalle_partida_fk" Association="Self.tbl_mf_catalogo_tbl_mf_detalle_partida_fk">
+      <End Role="tbl_mf_catalogo" EntitySet="tbl_mf_catalogo" />
+      <End Role="tbl_mf_detalle_partida" EntitySet="tbl_mf_detalle_partida" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_mf_cierre_contable_tbl_mf_detalle_partida_fk" Association="Self.tbl_mf_cierre_contable_tbl_mf_detalle_partida_fk">
+      <End Role="tbl_mf_cierre_contable" EntitySet="tbl_mf_cierre_contable" />
+      <End Role="tbl_mf_detalle_partida" EntitySet="tbl_mf_detalle_partida" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_mf_empresa_tbl_mf_detalle_partida_fk" Association="Self.tbl_mf_empresa_tbl_mf_detalle_partida_fk">
+      <End Role="tbl_mf_empresa" EntitySet="tbl_mf_empresa" />
+      <End Role="tbl_mf_detalle_partida" EntitySet="tbl_mf_detalle_partida" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_mf_modeda_tbl_mf_detalle_partida_fk" Association="Self.tbl_mf_modeda_tbl_mf_detalle_partida_fk">
+      <End Role="tbl_mf_modeda" EntitySet="tbl_mf_modeda" />
+      <End Role="tbl_mf_detalle_partida" EntitySet="tbl_mf_detalle_partida" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_mf_partida_tbl_mf_detalle_partida_fk" Association="Self.tbl_mf_partida_tbl_mf_detalle_partida_fk">
+      <End Role="tbl_mf_partida" EntitySet="tbl_mf_partida" />
+      <End Role="tbl_mf_detalle_partida" EntitySet="tbl_mf_detalle_partida" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_mf_periodo_contable_tbl_mf_detalle_partida_fk" Association="Self.tbl_mf_periodo_contable_tbl_mf_detalle_partida_fk">
+      <End Role="tbl_mf_periodo_contable" EntitySet="tbl_mf_periodo_contable" />
+      <End Role="tbl_mf_detalle_partida" EntitySet="tbl_mf_detalle_partida" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
