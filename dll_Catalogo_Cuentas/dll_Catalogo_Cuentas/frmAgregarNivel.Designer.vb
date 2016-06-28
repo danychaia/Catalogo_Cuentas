@@ -81,6 +81,7 @@ Partial Class frmAgregarNivel
         Me.Controls.Add(Me.lblCodigo)
         Me.Controls.Add(Me.txtCodigoCuenta)
         Me.Name = "frmAgregarNivel"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Agregar Nuevo Nivel"
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -27,8 +27,6 @@ Partial Class frmCatalogoCuentas
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.tw_Catalogo = New System.Windows.Forms.TreeView()
         Me.dgwCatalogo = New System.Windows.Forms.DataGridView()
-        Me.Codigo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnAgregarRow = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
@@ -63,7 +61,6 @@ Partial Class frmCatalogoCuentas
         Me.dgwCatalogo.AllowUserToAddRows = False
         Me.dgwCatalogo.AllowUserToDeleteRows = False
         Me.dgwCatalogo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgwCatalogo.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Codigo, Me.Descripcion})
         Me.dgwCatalogo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgwCatalogo.Location = New System.Drawing.Point(0, 0)
         Me.dgwCatalogo.MultiSelect = False
@@ -71,16 +68,6 @@ Partial Class frmCatalogoCuentas
         Me.dgwCatalogo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgwCatalogo.Size = New System.Drawing.Size(478, 371)
         Me.dgwCatalogo.TabIndex = 1
-        '
-        'Codigo
-        '
-        Me.Codigo.HeaderText = "Codigo"
-        Me.Codigo.Name = "Codigo"
-        '
-        'Descripcion
-        '
-        Me.Descripcion.HeaderText = "Descripcion"
-        Me.Descripcion.Name = "Descripcion"
         '
         'Panel2
         '
@@ -145,8 +132,6 @@ Partial Class frmCatalogoCuentas
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents tw_Catalogo As System.Windows.Forms.TreeView
     Friend WithEvents dgwCatalogo As System.Windows.Forms.DataGridView
-    Friend WithEvents Codigo As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Descripcion As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents btnAgregarRow As System.Windows.Forms.Button
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip

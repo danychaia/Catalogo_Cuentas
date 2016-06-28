@@ -73,6 +73,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.vb" />
+    <Compile Include="frAgregarNivelDos.Designer.vb">
+      <DependentUpon>frAgregarNivelDos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frAgregarNivelDos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAgregarNivel.Designer.vb">
       <DependentUpon>frmAgregarNivel.vb</DependentUpon>
     </Compile>
@@ -138,6 +144,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frAgregarNivelDos.resx">
+      <DependentUpon>frAgregarNivelDos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarNivel.resx">
       <DependentUpon>frmAgregarNivel.vb</DependentUpon>
     </EmbeddedResource>

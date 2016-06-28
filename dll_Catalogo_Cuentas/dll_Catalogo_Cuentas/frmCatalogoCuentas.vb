@@ -1,16 +1,26 @@
 ﻿Imports System.Windows.Forms
 
 Public Class frmCatalogoCuentas
-    Private selectNode = Nothing
+    Private selectNode As New tbl_mf_catalogo
     Private isselect As Integer = 0
 
     Private Sub btnAgregarRow_Click(sender As Object, e As EventArgs) Handles btnAgregarRow.Click
-        Me.dgwCatalogo.Rows.Add()
+
+        If isselect = 0 Then
+            MessageBox.Show("Debe de seleccionar una clasificacion")
+        Else
+            Dim agregarNivel As New frAgregarNivelDos()
+            agregarNivel.nodeSelected = selectNode
+            agregarNivel.ShowDialog()
+            tw_Catalogo.Nodes.Clear()
+            cargarCatalogoCuentas()
+            dgwCatalogo.DataSource = Nothing
+        End If
     End Sub
 
     Private Sub btnAgregarRow_KeyDown(sender As Object, e As KeyEventArgs) Handles btnAgregarRow.KeyDown
         If e.KeyCode = Keys.F2 Then
-            Me.dgwCatalogo.Rows.Add()
+            btnAgregarRow_Click(Me, Nothing)
         End If
     End Sub
 
@@ -47,7 +57,6 @@ Public Class frmCatalogoCuentas
     Private Sub btnAgregarNivel_Click(sender As Object, e As EventArgs) Handles btnAgregarNivel.Click
         If isselect = 0 Then
             MessageBox.Show("Debe de seleccionar una clasificacion")
-
         Else
             Dim agregar_nivel As New frmAgregarNivel()
             agregar_nivel.nodeSelected = selectNode
@@ -61,10 +70,40 @@ Public Class frmCatalogoCuentas
     Private Sub tw_Catalogo_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles tw_Catalogo.AfterSelect
         Dim esnselect As New TreeNode()
         esnselect = e.Node
-        Me.selectNode = New tbl_mf_catalogo
+        'Me.selectNode = New tbl_mf_catalogo
         Me.selectNode.id_catalogo = esnselect.Tag.ToString
         Me.selectNode.ctl_id_padre = esnselect.ToolTipText.ToString
         Me.isselect = 1
+        '' MessageBox.Show("Codigo de Cuenta  " & selectNode.id_catalogo & " codigo padre  " & selectNode.ctl_id_padre)
+        If (esnselect.Tag.ToString = "-100" Or esnselect.ToolTipText.ToString = "-100") Then
+            dgwCatalogo.DataSource = Nothing
+        Else
+            Dim drrow As DataRow
+            Using context As New contaEntities()
+                Dim listaNiveldos = From b In context.tbl_mf_catalogo
+                                      Where b.ctl_id_padre = Me.selectNode.id_catalogo
+                                      Select b
+                Dim dtdatos As New DataTable
+                dtdatos.Columns.Add("CODIGO CUENTA")
+                dtdatos.Columns.Add("DESCRIPCION")
+                dtdatos.Columns.Add("CODIGO PADRE")
+                For Each item As tbl_mf_catalogo In listaNiveldos
+                    drrow = dtdatos.NewRow
+                    drrow(0) = item.id_catalogo
+                    drrow(1) = item.ctl_descripcion
+                    drrow(2) = item.ctl_id_padre
+                    dtdatos.Rows.Add(drrow)
+                Next
+                dgwCatalogo.DataSource = dtdatos
+                dgwCatalogo.Columns(0).Width = 200
+                dgwCatalogo.Columns(1).Width = 200
+                dgwCatalogo.Columns(2).Visible = False
+            End Using
+
+        End If
+
+      
+
         '' MessageBox.Show("codigo  " & selectNode.id_catalogo & "  idPadre  " & selectNode.ctl_id_padre)
     End Sub
 End Class
