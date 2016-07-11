@@ -10,15 +10,16 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class tbl_mf_periodo_contable
-    Public Property id_periodo As Integer
+Partial Public Class tbl_mf_bancos
+    Public Property id_banco As Integer
     Public Property id_empresa As Integer
-    Public Property prc_fecha_inicio As Date
-    Public Property prc_fecha_final As Date
+    Public Property id_banco_1 As String
+    Public Property bc_id_externo As String
+    Public Property bc_fecha_cierre As Date
+    Public Property bc_fecha As Date
     Public Property id_estado As Integer
-    Public Property pc_cierre_contable As String
 
-    Public Overridable Property tbl_mf_partida As ICollection(Of tbl_mf_partida) = New HashSet(Of tbl_mf_partida)
-    Public Overridable Property tbl_mf_saldos As ICollection(Of tbl_mf_saldos) = New HashSet(Of tbl_mf_saldos)
+    Public Overridable Property tbl_mf_conciliacion As ICollection(Of tbl_mf_conciliacion) = New HashSet(Of tbl_mf_conciliacion)
+    Public Overridable Property tbl_mf_cuenta As ICollection(Of tbl_mf_cuenta) = New HashSet(Of tbl_mf_cuenta)
 
 End Class

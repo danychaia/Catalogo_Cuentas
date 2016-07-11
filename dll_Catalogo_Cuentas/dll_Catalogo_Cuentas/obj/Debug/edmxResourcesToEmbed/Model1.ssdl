@@ -1,35 +1,86 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="contaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="FinanzasG2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_detalle_move">
+    <Key>
+      <PropertyRef Name="id_tipo_movimiento" />
+    </Key>
+    <Property Name="id_tipo_movimiento" Type="int" Nullable="false" />
+    <Property Name="dtm_fecha" Type="datetime" Nullable="false" />
+    <Property Name="id_cuenta" Type="int" Nullable="false" />
+    <Property Name="dtm_documento" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="dtm_nodocumento" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mf_bancos">
+    <Key>
+      <PropertyRef Name="id_banco" />
+    </Key>
+    <Property Name="id_banco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_empresa" Type="int" Nullable="false" />
+    <Property Name="id_banco_1" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="bc_id_externo" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="bc_fecha_cierre" Type="datetime" Nullable="false" />
+    <Property Name="bc_fecha" Type="datetime" Nullable="false" />
+    <Property Name="id_estado" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="tbl_mf_catalogo">
     <Key>
       <PropertyRef Name="id_catalogo" />
     </Key>
     <Property Name="id_catalogo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_empresa" Type="int" Nullable="false" />
     <Property Name="ctl_descripcion" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="ctl_id_padre" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ctl_nivel" Type="int" Nullable="false" />
+    <Property Name="ct_saldo_actuall" Type="float" Nullable="false" />
     <Property Name="id_estado" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="tbl_mf_cierre_contable">
+  <EntityType Name="tbl_mf_conciliacion">
     <Key>
-      <PropertyRef Name="id_cierre" />
+      <PropertyRef Name="id_conciliacion" />
     </Key>
-    <Property Name="id_cierre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="cct_fecha_cierre" Type="datetime" Nullable="false" />
+    <Property Name="id_conciliacion" Type="int" Nullable="false" />
+    <Property Name="id_empresa" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="cnc_fecha_final" Type="datetime" Nullable="false" />
+    <Property Name="cnc_fecha_inicio" Type="datetime" Nullable="false" />
+    <Property Name="cnc_descripcion" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="id_banco" Type="int" Nullable="false" />
+    <Property Name="id_extracto" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mf_cuenta">
+    <Key>
+      <PropertyRef Name="id_cuenta" />
+    </Key>
+    <Property Name="id_cuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_banco" Type="int" Nullable="false" />
+    <Property Name="id_tipo_cuenta" Type="int" Nullable="false" />
+    <Property Name="cta_num_cuenta" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="cta_fecha" Type="datetime" Nullable="false" />
+    <Property Name="id_estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mf_detalle_conc">
+    <Key>
+      <PropertyRef Name="id_detalle_cnc" />
+    </Key>
+    <Property Name="id_detalle_cnc" Type="int" Nullable="false" />
+    <Property Name="id_conciliacion" Type="int" Nullable="false" />
+    <Property Name="id_tipo_doc" Type="int" Nullable="false" />
+    <Property Name="dtc_fecha" Type="datetime" Nullable="false" />
+    <Property Name="dtc_descripcion" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="dtc_monto" Type="float" Nullable="false" />
+    <Property Name="id_estado" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_mf_detalle_partida">
     <Key>
       <PropertyRef Name="id_detalle" />
+      <PropertyRef Name="id_empresa" />
     </Key>
     <Property Name="id_detalle" Type="int" Nullable="false" />
+    <Property Name="id_empresa" Type="int" Nullable="false" />
     <Property Name="dtp_debe" Type="float" Nullable="false" />
     <Property Name="dtp_haber" Type="varchar" MaxLength="1" Nullable="false" />
-    <Property Name="id_catalogo" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="id_partida" Type="int" Nullable="false" />
-    <Property Name="id_periodo" Type="int" Nullable="false" />
-    <Property Name="id_empresa" Type="int" Nullable="false" />
     <Property Name="id_moneda" Type="int" Nullable="false" />
-    <Property Name="id_cierre" Type="int" Nullable="false" />
+    <Property Name="id_catalogo" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_mf_empresa">
     <Key>
@@ -41,6 +92,18 @@
     <Property Name="eps_nit" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="id_estado" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="tbl_mf_extracto_bancario">
+    <Key>
+      <PropertyRef Name="id_extracto" />
+    </Key>
+    <Property Name="id_extracto" Type="int" Nullable="false" />
+    <Property Name="exb_fecha" Type="datetime" Nullable="false" />
+    <Property Name="exb_documento" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="exb_descripcion" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="exb_debito" Type="float" Nullable="false" />
+    <Property Name="exb_credito" Type="float" Nullable="false" />
+    <Property Name="exb_saldo" Type="float" Nullable="false" />
+  </EntityType>
   <EntityType Name="tbl_mf_modeda">
     <Key>
       <PropertyRef Name="id_moneda" />
@@ -51,11 +114,24 @@
     <Property Name="tbl_mf_fecha" Type="datetime" Nullable="false" />
     <Property Name="id_estado" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="tbl_mf_modulo">
+    <Key>
+      <PropertyRef Name="id_modulo" />
+    </Key>
+    <Property Name="id_modulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mod_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="mod_descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="mod_estado" Type="int" Nullable="false" />
+    <Property Name="mod_fecha_ingreso" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="tbl_mf_partida">
     <Key>
       <PropertyRef Name="id_partida" />
     </Key>
     <Property Name="id_partida" Type="int" Nullable="false" />
+    <Property Name="id_empresa" Type="int" Nullable="false" />
+    <Property Name="id_periodo" Type="int" Nullable="false" />
+    <Property Name="id_tipo_poliza" Type="int" Nullable="false" />
     <Property Name="ptd_concepto" Type="varchar" MaxLength="60" Nullable="false" />
     <Property Name="ptd_fecha" Type="datetime" Nullable="false" />
     <Property Name="ptd_no_partida" Type="varchar" MaxLength="50" Nullable="false" />
@@ -63,12 +139,108 @@
   <EntityType Name="tbl_mf_periodo_contable">
     <Key>
       <PropertyRef Name="id_periodo" />
+      <PropertyRef Name="id_empresa" />
     </Key>
     <Property Name="id_periodo" Type="int" Nullable="false" />
+    <Property Name="id_empresa" Type="int" Nullable="false" />
     <Property Name="prc_fecha_inicio" Type="datetime" Nullable="false" />
     <Property Name="prc_fecha_final" Type="datetime" Nullable="false" />
     <Property Name="id_estado" Type="int" Nullable="false" />
+    <Property Name="pc_cierre_contable" Type="char" MaxLength="1" Nullable="false" />
   </EntityType>
+  <EntityType Name="tbl_mf_permisos">
+    <Key>
+      <PropertyRef Name="id_permisos" />
+    </Key>
+    <Property Name="id_permisos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="per_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="per_correlativo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="per_estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mf_saldos">
+    <Key>
+      <PropertyRef Name="id_saldos" />
+    </Key>
+    <Property Name="id_saldos" Type="int" Nullable="false" />
+    <Property Name="id_catalogo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_empresa" Type="int" Nullable="false" />
+    <Property Name="id_periodo" Type="int" Nullable="false" />
+    <Property Name="sld_saldo_inicial" Type="float" Nullable="false" />
+    <Property Name="sld_saldo_anterior" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mf_tipo_cuenta">
+    <Key>
+      <PropertyRef Name="id_tipo_cuenta" />
+    </Key>
+    <Property Name="id_tipo_cuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tpc_descripcion" Type="int" Nullable="false" />
+    <Property Name="id_estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mf_tipo_doc">
+    <Key>
+      <PropertyRef Name="id_tipo_doc" />
+    </Key>
+    <Property Name="id_tipo_doc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tpd_descripcion" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="tpd_de" Type="int" />
+    <Property Name="tpd_hasta" Type="int" Nullable="false" />
+    <Property Name="id_estado" Type="int" Nullable="false" />
+    <Property Name="id_cuenta" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mf_tipo_movimiento">
+    <Key>
+      <PropertyRef Name="id_tipo_movimiento" />
+    </Key>
+    <Property Name="id_tipo_movimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tpm_descripcion" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="tpm_tipo_trans" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="id_estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mf_tipo_poliza">
+    <Key>
+      <PropertyRef Name="id_tipo_poliza" />
+    </Key>
+    <Property Name="id_tipo_poliza" Type="int" Nullable="false" />
+    <Property Name="id_empresa" Type="int" Nullable="false" />
+    <Property Name="tp_descripcion" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mf_usuarios">
+    <Key>
+      <PropertyRef Name="id_usuarios" />
+    </Key>
+    <Property Name="id_usuarios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_estado" Type="int" Nullable="false" />
+    <Property Name="user_correo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_fecha_ingreso" Type="datetime" Nullable="false" />
+    <Property Name="id_modulo" Type="int" Nullable="false" />
+    <Property Name="id_permisos" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="tbl_mf_bancos_tbl_mf_conciliacion_fk">
+    <End Role="tbl_mf_bancos" Type="Self.tbl_mf_bancos" Multiplicity="1" />
+    <End Role="tbl_mf_conciliacion" Type="Self.tbl_mf_conciliacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_bancos">
+        <PropertyRef Name="id_banco" />
+      </Principal>
+      <Dependent Role="tbl_mf_conciliacion">
+        <PropertyRef Name="id_banco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbl_mf_bancos_tbl_mf_cuenta_fk">
+    <End Role="tbl_mf_bancos" Type="Self.tbl_mf_bancos" Multiplicity="1" />
+    <End Role="tbl_mf_cuenta" Type="Self.tbl_mf_cuenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_bancos">
+        <PropertyRef Name="id_banco" />
+      </Principal>
+      <Dependent Role="tbl_mf_cuenta">
+        <PropertyRef Name="id_banco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="tbl_mf_catalogo_tbl_mf_detalle_partida_fk">
     <End Role="tbl_mf_catalogo" Type="Self.tbl_mf_catalogo" Multiplicity="1" />
     <End Role="tbl_mf_detalle_partida" Type="Self.tbl_mf_detalle_partida" Multiplicity="*" />
@@ -81,27 +253,63 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="tbl_mf_cierre_contable_tbl_mf_detalle_partida_fk">
-    <End Role="tbl_mf_cierre_contable" Type="Self.tbl_mf_cierre_contable" Multiplicity="1" />
-    <End Role="tbl_mf_detalle_partida" Type="Self.tbl_mf_detalle_partida" Multiplicity="*" />
+  <Association Name="tbl_mf_catalogo_tbl_mf_saldos_fk">
+    <End Role="tbl_mf_catalogo" Type="Self.tbl_mf_catalogo" Multiplicity="1" />
+    <End Role="tbl_mf_saldos" Type="Self.tbl_mf_saldos" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tbl_mf_cierre_contable">
-        <PropertyRef Name="id_cierre" />
+      <Principal Role="tbl_mf_catalogo">
+        <PropertyRef Name="id_catalogo" />
       </Principal>
-      <Dependent Role="tbl_mf_detalle_partida">
-        <PropertyRef Name="id_cierre" />
+      <Dependent Role="tbl_mf_saldos">
+        <PropertyRef Name="id_catalogo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="tbl_mf_empresa_tbl_mf_detalle_partida_fk">
-    <End Role="tbl_mf_empresa" Type="Self.tbl_mf_empresa" Multiplicity="1" />
-    <End Role="tbl_mf_detalle_partida" Type="Self.tbl_mf_detalle_partida" Multiplicity="*" />
+  <Association Name="tbl_mf_conciliacion_tbl_mf_detalle_conc_fk">
+    <End Role="tbl_mf_conciliacion" Type="Self.tbl_mf_conciliacion" Multiplicity="1" />
+    <End Role="tbl_mf_detalle_conc" Type="Self.tbl_mf_detalle_conc" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tbl_mf_empresa">
-        <PropertyRef Name="id_empresa" />
+      <Principal Role="tbl_mf_conciliacion">
+        <PropertyRef Name="id_conciliacion" />
       </Principal>
-      <Dependent Role="tbl_mf_detalle_partida">
-        <PropertyRef Name="id_empresa" />
+      <Dependent Role="tbl_mf_detalle_conc">
+        <PropertyRef Name="id_conciliacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbl_mf_cuenta_tbl_detalle_move_fk">
+    <End Role="tbl_mf_cuenta" Type="Self.tbl_mf_cuenta" Multiplicity="1" />
+    <End Role="tbl_detalle_move" Type="Self.tbl_detalle_move" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_cuenta">
+        <PropertyRef Name="id_cuenta" />
+      </Principal>
+      <Dependent Role="tbl_detalle_move">
+        <PropertyRef Name="id_cuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbl_mf_cuenta_tbl_mf_tipo_doc_fk">
+    <End Role="tbl_mf_cuenta" Type="Self.tbl_mf_cuenta" Multiplicity="1" />
+    <End Role="tbl_mf_tipo_doc" Type="Self.tbl_mf_tipo_doc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_cuenta">
+        <PropertyRef Name="id_cuenta" />
+      </Principal>
+      <Dependent Role="tbl_mf_tipo_doc">
+        <PropertyRef Name="id_cuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbl_mf_extracto_bancario_tbl_mf_conciliacion_fk">
+    <End Role="tbl_mf_extracto_bancario" Type="Self.tbl_mf_extracto_bancario" Multiplicity="1" />
+    <End Role="tbl_mf_conciliacion" Type="Self.tbl_mf_conciliacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_extracto_bancario">
+        <PropertyRef Name="id_extracto" />
+      </Principal>
+      <Dependent Role="tbl_mf_conciliacion">
+        <PropertyRef Name="id_extracto" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -117,6 +325,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="tbl_mf_modulo_tbl_mf_usuarios_fk">
+    <End Role="tbl_mf_modulo" Type="Self.tbl_mf_modulo" Multiplicity="1" />
+    <End Role="tbl_mf_usuarios" Type="Self.tbl_mf_usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_modulo">
+        <PropertyRef Name="id_modulo" />
+      </Principal>
+      <Dependent Role="tbl_mf_usuarios">
+        <PropertyRef Name="id_modulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="tbl_mf_partida_tbl_mf_detalle_partida_fk">
     <End Role="tbl_mf_partida" Type="Self.tbl_mf_partida" Multiplicity="1" />
     <End Role="tbl_mf_detalle_partida" Type="Self.tbl_mf_detalle_partida" Multiplicity="*" />
@@ -129,49 +349,170 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="tbl_mf_periodo_contable_tbl_mf_detalle_partida_fk">
+  <Association Name="tbl_mf_periodo_contable_tbl_mf_partida_fk">
     <End Role="tbl_mf_periodo_contable" Type="Self.tbl_mf_periodo_contable" Multiplicity="1" />
-    <End Role="tbl_mf_detalle_partida" Type="Self.tbl_mf_detalle_partida" Multiplicity="*" />
+    <End Role="tbl_mf_partida" Type="Self.tbl_mf_partida" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="tbl_mf_periodo_contable">
         <PropertyRef Name="id_periodo" />
+        <PropertyRef Name="id_empresa" />
       </Principal>
-      <Dependent Role="tbl_mf_detalle_partida">
+      <Dependent Role="tbl_mf_partida">
         <PropertyRef Name="id_periodo" />
+        <PropertyRef Name="id_empresa" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="contaModelStoreContainer">
+  <Association Name="tbl_mf_periodo_contable_tbl_mf_saldos_fk">
+    <End Role="tbl_mf_periodo_contable" Type="Self.tbl_mf_periodo_contable" Multiplicity="1" />
+    <End Role="tbl_mf_saldos" Type="Self.tbl_mf_saldos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_periodo_contable">
+        <PropertyRef Name="id_periodo" />
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="tbl_mf_saldos">
+        <PropertyRef Name="id_periodo" />
+        <PropertyRef Name="id_empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbl_mf_permisos_tbl_mf_usuarios_fk">
+    <End Role="tbl_mf_permisos" Type="Self.tbl_mf_permisos" Multiplicity="1" />
+    <End Role="tbl_mf_usuarios" Type="Self.tbl_mf_usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_permisos">
+        <PropertyRef Name="id_permisos" />
+      </Principal>
+      <Dependent Role="tbl_mf_usuarios">
+        <PropertyRef Name="id_permisos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbl_mf_tipo_cuenta_tbl_mf_cuenta_fk">
+    <End Role="tbl_mf_tipo_cuenta" Type="Self.tbl_mf_tipo_cuenta" Multiplicity="1" />
+    <End Role="tbl_mf_cuenta" Type="Self.tbl_mf_cuenta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_tipo_cuenta">
+        <PropertyRef Name="id_tipo_cuenta" />
+      </Principal>
+      <Dependent Role="tbl_mf_cuenta">
+        <PropertyRef Name="id_tipo_cuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbl_mf_tipo_movimiento_tbl_detalle_move_fk">
+    <End Role="tbl_mf_tipo_movimiento" Type="Self.tbl_mf_tipo_movimiento" Multiplicity="1" />
+    <End Role="tbl_detalle_move" Type="Self.tbl_detalle_move" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_tipo_movimiento">
+        <PropertyRef Name="id_tipo_movimiento" />
+      </Principal>
+      <Dependent Role="tbl_detalle_move">
+        <PropertyRef Name="id_tipo_movimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbl_mf_tipo_poliza_tbl_mf_partida_fk">
+    <End Role="tbl_mf_tipo_poliza" Type="Self.tbl_mf_tipo_poliza" Multiplicity="1" />
+    <End Role="tbl_mf_partida" Type="Self.tbl_mf_partida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mf_tipo_poliza">
+        <PropertyRef Name="id_tipo_poliza" />
+      </Principal>
+      <Dependent Role="tbl_mf_partida">
+        <PropertyRef Name="id_tipo_poliza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FinanzasG2ModelStoreContainer">
+    <EntitySet Name="tbl_detalle_move" EntityType="Self.tbl_detalle_move" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_bancos" EntityType="Self.tbl_mf_bancos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_mf_catalogo" EntityType="Self.tbl_mf_catalogo" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tbl_mf_cierre_contable" EntityType="Self.tbl_mf_cierre_contable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_conciliacion" EntityType="Self.tbl_mf_conciliacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_cuenta" EntityType="Self.tbl_mf_cuenta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_detalle_conc" EntityType="Self.tbl_mf_detalle_conc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_mf_detalle_partida" EntityType="Self.tbl_mf_detalle_partida" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_mf_empresa" EntityType="Self.tbl_mf_empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_extracto_bancario" EntityType="Self.tbl_mf_extracto_bancario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_mf_modeda" EntityType="Self.tbl_mf_modeda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_modulo" EntityType="Self.tbl_mf_modulo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_mf_partida" EntityType="Self.tbl_mf_partida" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_mf_periodo_contable" EntityType="Self.tbl_mf_periodo_contable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_permisos" EntityType="Self.tbl_mf_permisos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_saldos" EntityType="Self.tbl_mf_saldos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_tipo_cuenta" EntityType="Self.tbl_mf_tipo_cuenta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_tipo_doc" EntityType="Self.tbl_mf_tipo_doc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_tipo_movimiento" EntityType="Self.tbl_mf_tipo_movimiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_tipo_poliza" EntityType="Self.tbl_mf_tipo_poliza" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mf_usuarios" EntityType="Self.tbl_mf_usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="tbl_mf_bancos_tbl_mf_conciliacion_fk" Association="Self.tbl_mf_bancos_tbl_mf_conciliacion_fk">
+      <End Role="tbl_mf_bancos" EntitySet="tbl_mf_bancos" />
+      <End Role="tbl_mf_conciliacion" EntitySet="tbl_mf_conciliacion" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_mf_bancos_tbl_mf_cuenta_fk" Association="Self.tbl_mf_bancos_tbl_mf_cuenta_fk">
+      <End Role="tbl_mf_bancos" EntitySet="tbl_mf_bancos" />
+      <End Role="tbl_mf_cuenta" EntitySet="tbl_mf_cuenta" />
+    </AssociationSet>
     <AssociationSet Name="tbl_mf_catalogo_tbl_mf_detalle_partida_fk" Association="Self.tbl_mf_catalogo_tbl_mf_detalle_partida_fk">
       <End Role="tbl_mf_catalogo" EntitySet="tbl_mf_catalogo" />
       <End Role="tbl_mf_detalle_partida" EntitySet="tbl_mf_detalle_partida" />
     </AssociationSet>
-    <AssociationSet Name="tbl_mf_cierre_contable_tbl_mf_detalle_partida_fk" Association="Self.tbl_mf_cierre_contable_tbl_mf_detalle_partida_fk">
-      <End Role="tbl_mf_cierre_contable" EntitySet="tbl_mf_cierre_contable" />
-      <End Role="tbl_mf_detalle_partida" EntitySet="tbl_mf_detalle_partida" />
+    <AssociationSet Name="tbl_mf_catalogo_tbl_mf_saldos_fk" Association="Self.tbl_mf_catalogo_tbl_mf_saldos_fk">
+      <End Role="tbl_mf_catalogo" EntitySet="tbl_mf_catalogo" />
+      <End Role="tbl_mf_saldos" EntitySet="tbl_mf_saldos" />
     </AssociationSet>
-    <AssociationSet Name="tbl_mf_empresa_tbl_mf_detalle_partida_fk" Association="Self.tbl_mf_empresa_tbl_mf_detalle_partida_fk">
-      <End Role="tbl_mf_empresa" EntitySet="tbl_mf_empresa" />
-      <End Role="tbl_mf_detalle_partida" EntitySet="tbl_mf_detalle_partida" />
+    <AssociationSet Name="tbl_mf_conciliacion_tbl_mf_detalle_conc_fk" Association="Self.tbl_mf_conciliacion_tbl_mf_detalle_conc_fk">
+      <End Role="tbl_mf_conciliacion" EntitySet="tbl_mf_conciliacion" />
+      <End Role="tbl_mf_detalle_conc" EntitySet="tbl_mf_detalle_conc" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_mf_cuenta_tbl_detalle_move_fk" Association="Self.tbl_mf_cuenta_tbl_detalle_move_fk">
+      <End Role="tbl_mf_cuenta" EntitySet="tbl_mf_cuenta" />
+      <End Role="tbl_detalle_move" EntitySet="tbl_detalle_move" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_mf_cuenta_tbl_mf_tipo_doc_fk" Association="Self.tbl_mf_cuenta_tbl_mf_tipo_doc_fk">
+      <End Role="tbl_mf_cuenta" EntitySet="tbl_mf_cuenta" />
+      <End Role="tbl_mf_tipo_doc" EntitySet="tbl_mf_tipo_doc" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_mf_extracto_bancario_tbl_mf_conciliacion_fk" Association="Self.tbl_mf_extracto_bancario_tbl_mf_conciliacion_fk">
+      <End Role="tbl_mf_extracto_bancario" EntitySet="tbl_mf_extracto_bancario" />
+      <End Role="tbl_mf_conciliacion" EntitySet="tbl_mf_conciliacion" />
     </AssociationSet>
     <AssociationSet Name="tbl_mf_modeda_tbl_mf_detalle_partida_fk" Association="Self.tbl_mf_modeda_tbl_mf_detalle_partida_fk">
       <End Role="tbl_mf_modeda" EntitySet="tbl_mf_modeda" />
       <End Role="tbl_mf_detalle_partida" EntitySet="tbl_mf_detalle_partida" />
     </AssociationSet>
+    <AssociationSet Name="tbl_mf_modulo_tbl_mf_usuarios_fk" Association="Self.tbl_mf_modulo_tbl_mf_usuarios_fk">
+      <End Role="tbl_mf_modulo" EntitySet="tbl_mf_modulo" />
+      <End Role="tbl_mf_usuarios" EntitySet="tbl_mf_usuarios" />
+    </AssociationSet>
     <AssociationSet Name="tbl_mf_partida_tbl_mf_detalle_partida_fk" Association="Self.tbl_mf_partida_tbl_mf_detalle_partida_fk">
       <End Role="tbl_mf_partida" EntitySet="tbl_mf_partida" />
       <End Role="tbl_mf_detalle_partida" EntitySet="tbl_mf_detalle_partida" />
     </AssociationSet>
-    <AssociationSet Name="tbl_mf_periodo_contable_tbl_mf_detalle_partida_fk" Association="Self.tbl_mf_periodo_contable_tbl_mf_detalle_partida_fk">
+    <AssociationSet Name="tbl_mf_periodo_contable_tbl_mf_partida_fk" Association="Self.tbl_mf_periodo_contable_tbl_mf_partida_fk">
       <End Role="tbl_mf_periodo_contable" EntitySet="tbl_mf_periodo_contable" />
-      <End Role="tbl_mf_detalle_partida" EntitySet="tbl_mf_detalle_partida" />
+      <End Role="tbl_mf_partida" EntitySet="tbl_mf_partida" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_mf_periodo_contable_tbl_mf_saldos_fk" Association="Self.tbl_mf_periodo_contable_tbl_mf_saldos_fk">
+      <End Role="tbl_mf_periodo_contable" EntitySet="tbl_mf_periodo_contable" />
+      <End Role="tbl_mf_saldos" EntitySet="tbl_mf_saldos" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_mf_permisos_tbl_mf_usuarios_fk" Association="Self.tbl_mf_permisos_tbl_mf_usuarios_fk">
+      <End Role="tbl_mf_permisos" EntitySet="tbl_mf_permisos" />
+      <End Role="tbl_mf_usuarios" EntitySet="tbl_mf_usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_mf_tipo_cuenta_tbl_mf_cuenta_fk" Association="Self.tbl_mf_tipo_cuenta_tbl_mf_cuenta_fk">
+      <End Role="tbl_mf_tipo_cuenta" EntitySet="tbl_mf_tipo_cuenta" />
+      <End Role="tbl_mf_cuenta" EntitySet="tbl_mf_cuenta" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_mf_tipo_movimiento_tbl_detalle_move_fk" Association="Self.tbl_mf_tipo_movimiento_tbl_detalle_move_fk">
+      <End Role="tbl_mf_tipo_movimiento" EntitySet="tbl_mf_tipo_movimiento" />
+      <End Role="tbl_detalle_move" EntitySet="tbl_detalle_move" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_mf_tipo_poliza_tbl_mf_partida_fk" Association="Self.tbl_mf_tipo_poliza_tbl_mf_partida_fk">
+      <End Role="tbl_mf_tipo_poliza" EntitySet="tbl_mf_tipo_poliza" />
+      <End Role="tbl_mf_partida" EntitySet="tbl_mf_partida" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

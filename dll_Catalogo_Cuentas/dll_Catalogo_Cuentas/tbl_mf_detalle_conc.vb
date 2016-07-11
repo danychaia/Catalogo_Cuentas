@@ -10,15 +10,15 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class tbl_mf_periodo_contable
-    Public Property id_periodo As Integer
-    Public Property id_empresa As Integer
-    Public Property prc_fecha_inicio As Date
-    Public Property prc_fecha_final As Date
+Partial Public Class tbl_mf_detalle_conc
+    Public Property id_detalle_cnc As Integer
+    Public Property id_conciliacion As Integer
+    Public Property id_tipo_doc As Integer
+    Public Property dtc_fecha As Date
+    Public Property dtc_descripcion As String
+    Public Property dtc_monto As Double
     Public Property id_estado As Integer
-    Public Property pc_cierre_contable As String
 
-    Public Overridable Property tbl_mf_partida As ICollection(Of tbl_mf_partida) = New HashSet(Of tbl_mf_partida)
-    Public Overridable Property tbl_mf_saldos As ICollection(Of tbl_mf_saldos) = New HashSet(Of tbl_mf_saldos)
+    Public Overridable Property tbl_mf_conciliacion As tbl_mf_conciliacion
 
 End Class

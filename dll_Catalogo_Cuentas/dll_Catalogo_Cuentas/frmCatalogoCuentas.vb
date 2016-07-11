@@ -1,7 +1,17 @@
-﻿Imports System.Windows.Forms
+﻿'/***************************************************************
+'NOMBRE:DLL CATALOGO DE CUENTAS
+'FECHA: 23/06/2016
+'CREADOR: DANIEL ISAIAS MORENO
+'DESCRIPCIÓN CONSTRUYE EL CATALOGO DE CUENTAS CONTABLES
+'DETALLE: ARBOL DE CUENTAS CONTABLES
+'MODIFICACIÓN: 10/07/2016
+'***************************************************************/
+Imports System.Windows.Forms
 
 Public Class frmCatalogoCuentas
     Private selectNode As New tbl_mf_catalogo
+    Public cuenta_seleccionada As New tbl_mf_catalogo
+    Public idEmpresa As New Integer
     Private isselect As Integer = 0
 
     Private Sub btnAgregarRow_Click(sender As Object, e As EventArgs) Handles btnAgregarRow.Click
@@ -30,14 +40,14 @@ Public Class frmCatalogoCuentas
 
     Private Sub cargarCatalogoCuentas()
         Dim cuentas As New List(Of tbl_mf_catalogo)
-        Using context As New contaEntities()
+        Using context As New FinanzasG2Entities()
             cuentas = context.tbl_mf_catalogo.ToList
-        End Using        
+        End Using
         llenarArbolCuentas(cuentas, "-1", Nothing)
     End Sub
     Private Sub llenarArbolCuentas(cuentas As List(Of tbl_mf_catalogo), cuentaPadre As String, nodoPadre As TreeNode)
         Dim nuevasCuentas = From c In cuentas
-                        Where c.ctl_id_padre = cuentaPadre And c.ctl_nivel = 1 And c.id_estado = 1
+                        Where c.ctl_id_padre = cuentaPadre And c.ctl_nivel = 1 And c.id_estado = 1 And c.id_empresa = idEmpresa
                         Select c
         For Each item As tbl_mf_catalogo In nuevasCuentas
             Dim tnNodo As New TreeNode(item.id_catalogo & "-" & item.ctl_descripcion)
@@ -74,12 +84,14 @@ Public Class frmCatalogoCuentas
         Me.selectNode.id_catalogo = esnselect.Tag.ToString
         Me.selectNode.ctl_id_padre = esnselect.ToolTipText.ToString
         Me.isselect = 1
+        Me.cuenta_seleccionada = Me.selectNode
+        Me.cuenta_seleccionada.ctl_descripcion = esnselect.Text
         '' MessageBox.Show("Codigo de Cuenta  " & selectNode.id_catalogo & " codigo padre  " & selectNode.ctl_id_padre)
         If (esnselect.Tag.ToString = "-100" Or esnselect.ToolTipText.ToString = "-100") Then
             dgwCatalogo.DataSource = Nothing
         Else
             Dim drrow As DataRow
-            Using context As New contaEntities()
+            Using context As New FinanzasG2Entities()
                 Dim listaNiveldos = From b In context.tbl_mf_catalogo
                                       Where b.ctl_id_padre = Me.selectNode.id_catalogo
                                       Select b
@@ -105,5 +117,12 @@ Public Class frmCatalogoCuentas
       
 
         '' MessageBox.Show("codigo  " & selectNode.id_catalogo & "  idPadre  " & selectNode.ctl_id_padre)
+    End Sub
+
+    Private Sub dgwCatalogo_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwCatalogo.CellDoubleClick
+        cuenta_seleccionada.id_catalogo = dgwCatalogo.SelectedRows(e.RowIndex).Cells("CODIGO CUENTA").Value
+        cuenta_seleccionada.ctl_descripcion = dgwCatalogo.SelectedRows(e.RowIndex).Cells("DESCRIPCION").Value
+        cuenta_seleccionada.ctl_id_padre = dgwCatalogo.SelectedRows(e.RowIndex).Cells("CODIGO PADRE").Value
+        Me.Close()
     End Sub
 End Class

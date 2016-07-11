@@ -10,11 +10,13 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class tbl_mf_empresa
-    Public Property id_empresa As Integer
-    Public Property eps_nombre As String
-    Public Property eps_razon_social As String
-    Public Property eps_nit As String
-    Public Property id_estado As Integer
+Partial Public Class tbl_mf_modulo
+    Public Property id_modulo As Integer
+    Public Property mod_nombre As String
+    Public Property mod_descripcion As String
+    Public Property mod_estado As Integer
+    Public Property mod_fecha_ingreso As Date
+
+    Public Overridable Property tbl_mf_usuarios As ICollection(Of tbl_mf_usuarios) = New HashSet(Of tbl_mf_usuarios)
 
 End Class

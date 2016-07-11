@@ -10,11 +10,14 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class tbl_mf_empresa
-    Public Property id_empresa As Integer
-    Public Property eps_nombre As String
-    Public Property eps_razon_social As String
-    Public Property eps_nit As String
-    Public Property id_estado As Integer
+Partial Public Class tbl_detalle_move
+    Public Property id_tipo_movimiento As Integer
+    Public Property dtm_fecha As Date
+    Public Property id_cuenta As Integer
+    Public Property dtm_documento As String
+    Public Property dtm_nodocumento As String
+
+    Public Overridable Property tbl_mf_cuenta As tbl_mf_cuenta
+    Public Overridable Property tbl_mf_tipo_movimiento As tbl_mf_tipo_movimiento
 
 End Class

@@ -10,11 +10,15 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class tbl_mf_empresa
-    Public Property id_empresa As Integer
-    Public Property eps_nombre As String
-    Public Property eps_razon_social As String
-    Public Property eps_nit As String
-    Public Property id_estado As Integer
+Partial Public Class tbl_mf_extracto_bancario
+    Public Property id_extracto As Integer
+    Public Property exb_fecha As Date
+    Public Property exb_documento As String
+    Public Property exb_descripcion As String
+    Public Property exb_debito As Double
+    Public Property exb_credito As Double
+    Public Property exb_saldo As Double
+
+    Public Overridable Property tbl_mf_conciliacion As ICollection(Of tbl_mf_conciliacion) = New HashSet(Of tbl_mf_conciliacion)
 
 End Class

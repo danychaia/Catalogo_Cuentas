@@ -12,20 +12,15 @@ Imports System.Collections.Generic
 
 Partial Public Class tbl_mf_detalle_partida
     Public Property id_detalle As Integer
+    Public Property id_empresa As Integer
     Public Property dtp_debe As Double
     Public Property dtp_haber As String
-    Public Property id_catalogo As String
     Public Property id_partida As Integer
-    Public Property id_periodo As Integer
-    Public Property id_empresa As Integer
     Public Property id_moneda As Integer
-    Public Property id_cierre As Integer
+    Public Property id_catalogo As String
 
     Public Overridable Property tbl_mf_catalogo As tbl_mf_catalogo
-    Public Overridable Property tbl_mf_cierre_contable As tbl_mf_cierre_contable
-    Public Overridable Property tbl_mf_empresa As tbl_mf_empresa
     Public Overridable Property tbl_mf_modeda As tbl_mf_modeda
     Public Overridable Property tbl_mf_partida As tbl_mf_partida
-    Public Overridable Property tbl_mf_periodo_contable As tbl_mf_periodo_contable
 
 End Class

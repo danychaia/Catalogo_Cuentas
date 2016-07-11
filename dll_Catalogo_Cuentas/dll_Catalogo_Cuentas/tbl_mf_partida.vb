@@ -12,10 +12,15 @@ Imports System.Collections.Generic
 
 Partial Public Class tbl_mf_partida
     Public Property id_partida As Integer
+    Public Property id_empresa As Integer
+    Public Property id_periodo As Integer
+    Public Property id_tipo_poliza As Integer
     Public Property ptd_concepto As String
     Public Property ptd_fecha As Date
     Public Property ptd_no_partida As String
 
     Public Overridable Property tbl_mf_detalle_partida As ICollection(Of tbl_mf_detalle_partida) = New HashSet(Of tbl_mf_detalle_partida)
+    Public Overridable Property tbl_mf_periodo_contable As tbl_mf_periodo_contable
+    Public Overridable Property tbl_mf_tipo_poliza As tbl_mf_tipo_poliza
 
 End Class

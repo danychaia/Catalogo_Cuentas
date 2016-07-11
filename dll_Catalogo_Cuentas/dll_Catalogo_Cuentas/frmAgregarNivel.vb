@@ -4,7 +4,7 @@ Public Class frmAgregarNivel
     Public nodeSelected As New tbl_mf_catalogo
 
     Private Sub btnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
-        Using context As New contaEntities
+        Using context As New FinanzasG2Entities
             Dim catalogo As New tbl_mf_catalogo
             catalogo.id_catalogo = txtCodigoCuenta.Text
             catalogo.ctl_descripcion = txtDescrip.Text

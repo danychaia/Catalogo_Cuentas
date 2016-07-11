@@ -12,11 +12,14 @@ Imports System.Collections.Generic
 
 Partial Public Class tbl_mf_catalogo
     Public Property id_catalogo As String
+    Public Property id_empresa As Integer
     Public Property ctl_descripcion As String
     Public Property ctl_id_padre As String
     Public Property ctl_nivel As Integer
+    Public Property ct_saldo_actuall As Double
     Public Property id_estado As Integer
 
     Public Overridable Property tbl_mf_detalle_partida As ICollection(Of tbl_mf_detalle_partida) = New HashSet(Of tbl_mf_detalle_partida)
+    Public Overridable Property tbl_mf_saldos As ICollection(Of tbl_mf_saldos) = New HashSet(Of tbl_mf_saldos)
 
 End Class

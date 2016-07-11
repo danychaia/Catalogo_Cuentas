@@ -10,10 +10,12 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class tbl_mf_cierre_contable
-    Public Property id_cierre As Integer
-    Public Property cct_fecha_cierre As Date
+Partial Public Class tbl_mf_permisos
+    Public Property id_permisos As Integer
+    Public Property per_nombre As String
+    Public Property per_correlativo As String
+    Public Property per_estado As Integer
 
-    Public Overridable Property tbl_mf_detalle_partida As ICollection(Of tbl_mf_detalle_partida) = New HashSet(Of tbl_mf_detalle_partida)
+    Public Overridable Property tbl_mf_usuarios As ICollection(Of tbl_mf_usuarios) = New HashSet(Of tbl_mf_usuarios)
 
 End Class
