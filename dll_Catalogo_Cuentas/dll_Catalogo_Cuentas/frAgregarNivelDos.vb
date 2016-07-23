@@ -8,6 +8,7 @@
             catalogo.ctl_id_padre = nodeSelected.id_catalogo
             catalogo.id_estado = 1
             catalogo.ctl_nivel = 2
+            catalogo.id_empresa = 1
             context.tbl_mf_catalogo.Add(catalogo)
             context.SaveChanges()
         End Using

@@ -95,34 +95,44 @@ Public Class frmCatalogoCuentas
                 Dim listaNiveldos = From b In context.tbl_mf_catalogo
                                       Where b.ctl_id_padre = Me.selectNode.id_catalogo
                                       Select b
-                Dim dtdatos As New DataTable
+                Dim dtdatos As New DataTable("table1")
                 dtdatos.Columns.Add("CODIGO CUENTA")
                 dtdatos.Columns.Add("DESCRIPCION")
                 dtdatos.Columns.Add("CODIGO PADRE")
+                dtdatos.Columns.Add("SALDO CUENTA")
                 For Each item As tbl_mf_catalogo In listaNiveldos
                     drrow = dtdatos.NewRow
                     drrow(0) = item.id_catalogo
                     drrow(1) = item.ctl_descripcion
                     drrow(2) = item.ctl_id_padre
+                    drrow(3) = item.ct_saldo_actuall
                     dtdatos.Rows.Add(drrow)
                 Next
                 dgwCatalogo.DataSource = dtdatos
                 dgwCatalogo.Columns(0).Width = 200
                 dgwCatalogo.Columns(1).Width = 200
+                dgwCatalogo.Columns(2).Width = 200
+                dgwCatalogo.Columns(3).Width = 200
                 dgwCatalogo.Columns(2).Visible = False
             End Using
 
         End If
 
-      
+
 
         '' MessageBox.Show("codigo  " & selectNode.id_catalogo & "  idPadre  " & selectNode.ctl_id_padre)
     End Sub
 
     Private Sub dgwCatalogo_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgwCatalogo.CellDoubleClick
-        cuenta_seleccionada.id_catalogo = dgwCatalogo.SelectedRows(e.RowIndex).Cells("CODIGO CUENTA").Value
-        cuenta_seleccionada.ctl_descripcion = dgwCatalogo.SelectedRows(e.RowIndex).Cells("DESCRIPCION").Value
-        cuenta_seleccionada.ctl_id_padre = dgwCatalogo.SelectedRows(e.RowIndex).Cells("CODIGO PADRE").Value
+
+        If e.RowIndex > -1 And e.ColumnIndex > -1 Then
+            Dim rowselect As New DataGridViewRow
+            rowselect = dgwCatalogo.Rows(e.RowIndex)
+            cuenta_seleccionada.id_catalogo = rowselect.Cells(0).Value.ToString
+            cuenta_seleccionada.ctl_descripcion = rowselect.Cells(1).Value.ToString
+            cuenta_seleccionada.ctl_id_padre = rowselect.Cells(2).Value.ToString
+        End If
+
         Me.Close()
     End Sub
 End Class

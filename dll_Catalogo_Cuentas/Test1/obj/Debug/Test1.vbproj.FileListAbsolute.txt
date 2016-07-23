@@ -1,0 +1,16 @@
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\bin\Debug\Test1.exe.config
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\bin\Debug\Test1.exe
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\bin\Debug\Test1.pdb
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\bin\Debug\Test1.xml
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\obj\Debug\Test1.vbprojResolveAssemblyReference.cache
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\obj\Debug\Test1.Resources.resources
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\obj\Debug\Test1.vbproj.GenerateResource.Cache
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\obj\Debug\Test1.exe
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\obj\Debug\Test1.xml
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\obj\Debug\Test1.pdb
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\obj\Debug\Test1.Form1.resources
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\bin\Debug\dll_Catalogo_Cuentas.dll
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\bin\Debug\EntityFramework.dll
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\bin\Debug\dll_Catalogo_Cuentas.pdb
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\bin\Debug\dll_Catalogo_Cuentas.xml
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\Test1\bin\Debug\EntityFramework.xml

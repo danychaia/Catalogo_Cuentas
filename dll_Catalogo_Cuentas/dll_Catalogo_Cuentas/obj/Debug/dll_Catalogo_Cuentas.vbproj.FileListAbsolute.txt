@@ -22,3 +22,4 @@ C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuent
 C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.dll
 C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.xml
 C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.pdb
+C:\Users\DANY\Documents\Catalogo_Cuentas\dll_Catalogo_Cuentas\dll_Catalogo_Cuentas\obj\Debug\dll_Catalogo_Cuentas.vbprojResolveAssemblyReference.cache
